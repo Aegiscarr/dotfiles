@@ -1,6 +1,6 @@
 {
   exec-once = [
-    "swaybg --image ~/Pictures/untitled.png --mode fill"
+    "swaybg --image ~/.config/dotfiles/wallpaper/halftone-blue.png --mode fill"
     "dbus-update-activation-environment --systemd DISPLAY WAYLAND-DISPLAY"
     "bash ~/.config/lockonsleep/config.sh"
     "nohup easyeffects --gapplication-service"
