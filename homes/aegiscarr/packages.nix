@@ -11,5 +11,6 @@
     gparted
     easyeffects
     gimp
+    inkscape
   ];
 }

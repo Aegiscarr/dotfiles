@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
+  
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/ec225e62-b866-4041-8253-720afe4ef9f7";
       fsType = "btrfs";
@@ -28,12 +28,12 @@
     [ { device = "/dev/disk/by-uuid/44d029ef-508f-4f11-9480-32abe6e4cb68"; }
     ];
 
-  fileSystems."/mnt/c/" =
+  fileSystems."/mnt/c" =
     { device = "/dev/disk/by-uuid/9248C06148C045A7";
       fsType = "ntfs";
     };
   
-  fileSystems."/mnt/e/" =
+  fileSystems."/mnt/e" =
     { device = "/dev/disk/by-uuid/C81E50ED1E50D5D2";
       fsType = "ntfs";
     };

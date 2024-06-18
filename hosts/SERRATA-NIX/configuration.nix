@@ -9,13 +9,13 @@
   imports = [
     ./hardware-configuration.nix
     ../common.nix
-    ./streamdeck.nix
   ];
 
   nixpkgs = {
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      cudaSupport = true;
     };
   };
 
@@ -45,7 +45,10 @@
   boot.loader.efi.efiSysMountPoint = "/boot/";
   
   # audio maybe
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest.xone;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  # cuda support
+  boot.kernelModules = [ "nvidia-uvm" ];
+  hardware.xone.enable = true;
 
   # enable networking
   networking.networkmanager.wifi.backend = "iwd";

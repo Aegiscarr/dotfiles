@@ -1,8 +1,9 @@
 {
   exec-once = [
-    "swaybg --image /home/aegiscarr/Pictures/untitled.png --mode fill"
+    "swaybg --image ~/Pictures/untitled.png --mode fill"
     "dbus-update-activation-environment --systemd DISPLAY WAYLAND-DISPLAY"
     "bash ~/.config/lockonsleep/config.sh"
+    "nohup easyeffects --gapplication-service"
   ];
 
   monitor = [
@@ -93,7 +94,7 @@
   };
 
   misc = {
-    disable_hyprland_logo = false;
+    disable_hyprland_logo = true;
   };
 
   binde = [
@@ -109,7 +110,7 @@
     "$mod, M, exit, "
     "$mod SHIFT, space, togglefloating, "
     "$mod, R, exec, wofi --show drun"
-    "$mod, E, exec, nemo"
+    "$mod, E, exec, thunar"
     "$mod, P, pseudo,"
     "$mod, J, togglesplit,"
     "$mod SHIFT, F, exec, hyprctl dispatch exit"
@@ -148,5 +149,11 @@
   bindm = [
     "$mod, mouse:272, movewindow" # left mouse
     "$mod, mouse:273, resizewindow" # right mouse
+  ];
+
+  bindl = [
+    ", XF86AudioPlay, exec, playerctl play-pause"
+    ", XF86AudioNext, exec, playerctl next"
+    ", XF86AudioPrev, exec, playerctl previous"
   ];
 }

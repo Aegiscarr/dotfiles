@@ -8,7 +8,6 @@
     ./packages.nix # home.packages and similar stuff
     ./programs.nix # programs.<programName>.enable
     ./git.nix
-#    ./streamdeck.nix
     inputs.hyprland.homeManagerModules.default
     ./ags
   ];
@@ -42,10 +41,11 @@
       x11.enable = true;
     };
 
-    gtk.cursorTheme.name = "Posy's Cursor";
-    qt.enable = true;
-    qt.platformTheme.name = "gtk";
   };
+  
+  gtk.cursorTheme.name = "Posy's Cursor";
+  qt.enable = true;
+  qt.platformTheme.name = "gtk";
 
   # let HM manage itself when in standalone mode
   programs.home-manager.enable = true;
