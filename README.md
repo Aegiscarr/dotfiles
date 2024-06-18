@@ -1,5 +1,5 @@
 # *aegis' nixos dots*
-*alternative title: aegis struggles with following instructions for 8 hours*
+*alternative title: aegis struggles with following (simple) instructions for 8 hours*
 
 ## *hi, whats this for*
 this repo currently contains configs for:
