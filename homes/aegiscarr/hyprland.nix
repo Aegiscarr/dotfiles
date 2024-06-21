@@ -4,6 +4,7 @@
     "dbus-update-activation-environment --systemd DISPLAY WAYLAND-DISPLAY"
     "bash ~/.config/lockonsleep/config.sh"
     "nohup easyeffects --gapplication-service"
+    #"hyprlock"
   ];
 
   monitor = [
@@ -110,7 +111,7 @@
     "$mod, M, exit, "
     "$mod SHIFT, space, togglefloating, "
     "$mod, R, exec, wofi --show drun"
-    "$mod, E, exec, thunar"
+    "$mod, E, exec, nemo"
     "$mod, P, pseudo,"
     "$mod, J, togglesplit,"
     "$mod SHIFT, F, exec, hyprctl dispatch exit"
@@ -122,6 +123,8 @@
     "$mod, down, movewindow, down"
     "$mod, T, fullscreen"
     "$mod, O, exec, ddcutil --display 2 setvcp 60 11"
+    "$mod, L, exec, hyprlock"
+    "$mod SHIFT, C, exec, hyprpicker -f=hex -a"
     # Switch workspaces
     "$mod, 1, workspace, 1"
     "$mod, 2, workspace, 2"

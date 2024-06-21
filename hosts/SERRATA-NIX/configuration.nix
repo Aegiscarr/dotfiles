@@ -56,6 +56,9 @@
   # nvidia drivers
   services.xserver.videoDrivers=["nvidia"];
 
+  # autologin
+  #services.getty.autologinUser = "aegiscarr";
+
   hardware.nvidia = {
     modesetting.enable=true;
     nvidiaPersistenced=true;
@@ -66,7 +69,7 @@
   };
 
   # opengl/vulkan support
-  hardware.opengl = {
+  hardware.graphics = {
     driSupport32Bit=true;
     extraPackages=with pkgs; [
       amdvlk

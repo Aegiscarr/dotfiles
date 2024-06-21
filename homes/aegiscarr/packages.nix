@@ -12,5 +12,6 @@
     easyeffects
     gimp
     inkscape
+    hyprpicker
   ];
 }

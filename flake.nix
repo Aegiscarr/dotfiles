@@ -58,11 +58,11 @@
 
     # hyprland
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprlock.url = "github:hyprwm/hyprlock";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
 
     # ags
     ags.url = "github:Aylur/ags";
-
-    hyprpicker.url = "github:hyprwm/hyprpicker";
 
     # NUR
     nur.url = "github:nix-community/NUR";
