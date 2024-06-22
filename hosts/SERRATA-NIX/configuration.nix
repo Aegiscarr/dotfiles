@@ -54,7 +54,7 @@
   networking.networkmanager.wifi.backend = "iwd";
 
   # nvidia drivers
-  services.xserver.videoDrivers=["nvidia"];
+  #services.xserver.videoDrivers=["nvidia"];
 
   # autologin
   #services.getty.autologinUser = "aegiscarr";
