@@ -25,6 +25,7 @@ eh well as long as i'm having fun all's well with the world
 ## *todo*
 - windows exe compat layer
 - redo widgets
+- mess with my hyprlock config more because i have a very specific idea in mind and i will not stop tweaking it until it matches exactly
 - general cleanup as always because trying to get me to write clean code is like trying to connect a wiimote to a tree
 
 ---
