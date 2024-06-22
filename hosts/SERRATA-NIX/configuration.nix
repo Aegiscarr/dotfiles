@@ -48,6 +48,7 @@
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   # cuda support
   boot.kernelModules = [ "nvidia-uvm" ];
+  boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.xone.enable = true;
 
   # enable networking
@@ -55,6 +56,9 @@
 
   # nvidia drivers
   services.xserver.videoDrivers=["nvidia"];
+
+  # autologin
+  #services.getty.autologinUser = "aegiscarr";
 
   hardware.nvidia = {
     modesetting.enable=true;
@@ -66,8 +70,8 @@
   };
 
   # opengl/vulkan support
-  hardware.opengl = {
-    driSupport32Bit=true;
+  hardware.graphics = {
+    #driSupport32Bit=true;
     extraPackages=with pkgs; [
       amdvlk
       libvdpau-va-gl
@@ -85,7 +89,7 @@
   };
 
   boot.supportedFilesystems = [ "btrfs" "ntfs" ];
-
+  boot.kernelParams = [ "nvidia-drm.fbdev=1" ];
   # Set a time zone
   time.timeZone = "Europe/Amsterdam";
 
