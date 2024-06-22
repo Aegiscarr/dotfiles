@@ -47,14 +47,15 @@
   # audio maybe
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   # cuda support
-  boot.kernelModules = [ "nvidia-uvm" ];
+  boot.kernelModules = [ "nvidia-uvm nvidia-utils egl-wayland" ];
+  boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.xone.enable = true;
 
   # enable networking
   networking.networkmanager.wifi.backend = "iwd";
 
   # nvidia drivers
-  #services.xserver.videoDrivers=["nvidia"];
+  services.xserver.videoDrivers=["nvidia"];
 
   # autologin
   #services.getty.autologinUser = "aegiscarr";
@@ -70,7 +71,7 @@
 
   # opengl/vulkan support
   hardware.graphics = {
-    driSupport32Bit=true;
+    #driSupport32Bit=true;
     extraPackages=with pkgs; [
       amdvlk
       libvdpau-va-gl
@@ -88,7 +89,7 @@
   };
 
   boot.supportedFilesystems = [ "btrfs" "ntfs" ];
-
+  boot.kernelParams = [ "nvidia-derm.fbdev=1" ];
   # Set a time zone
   time.timeZone = "Europe/Amsterdam";
 
