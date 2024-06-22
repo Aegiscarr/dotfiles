@@ -4,7 +4,7 @@
     "dbus-update-activation-environment --systemd DISPLAY WAYLAND-DISPLAY"
     "bash ~/.config/lockonsleep/config.sh"
     "nohup easyeffects --gapplication-service"
-    #"hyprlock"
+    "hyprlock"
   ];
 
   monitor = [
@@ -87,7 +87,7 @@
   };
 
   master = {
-    new_is_master = true;
+    new_status = "master";
   };
 
   gestures = {
@@ -95,7 +95,7 @@
   };
 
   misc = {
-    disable_hyprland_logo = true;
+    disable_hyprland_logo = false;
   };
 
   binde = [

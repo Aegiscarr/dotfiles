@@ -47,7 +47,7 @@
   # audio maybe
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   # cuda support
-  boot.kernelModules = [ "nvidia-uvm nvidia-utils egl-wayland" ];
+  boot.kernelModules = [ "nvidia-uvm" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.xone.enable = true;
 
@@ -89,7 +89,7 @@
   };
 
   boot.supportedFilesystems = [ "btrfs" "ntfs" ];
-  boot.kernelParams = [ "nvidia-derm.fbdev=1" ];
+  boot.kernelParams = [ "nvidia-drm.fbdev=1" ];
   # Set a time zone
   time.timeZone = "Europe/Amsterdam";
 
