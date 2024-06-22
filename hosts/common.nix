@@ -8,10 +8,10 @@
   ...
 }: {
   services.xserver = {
-    enable = true;
+    enable = false;
   };
 
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = false;
   services.udisks2.enable = true;
   
   programs.hyprland = {
@@ -19,10 +19,26 @@
     xwayland.enable = true;
   };
 
-  hardware.opengl = {
+  programs.hyprlock = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    package = pkgs.hyprlock.overrideAttrs (old: {
+      version = "git";
+      src = pkgs.fetchFromGitHub {
+        owner = "hyprwm";
+        repo = "hyprlock";
+        rev = "2bce52f";
+        sha256 = "36qa6MOhCBd39YPC0FgapwGRHZXjstw8BQuKdFzwQ4k=";
+      };
+      patchPhase = ''
+        substituteInPlace src/core/hyprlock.cpp \
+        --replace "5000" "16"
+      '';
+      });
+  };
+  
+
+  hardware.graphics = {
+    enable = true;
   };
 
   programs.dconf.enable = true;
@@ -33,7 +49,7 @@
     mesa
     pavucontrol
     pulseaudio
-    xfce.thunar
+    cinnamon.nemo
     dbus
     swaybg
     grim
@@ -46,6 +62,7 @@
     appimage-run
     playerctl
     cudaPackages.cudatoolkit
+    swayidle
   ];
 
   fonts.packages = with pkgs; [
@@ -98,6 +115,27 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
+  };
+
+  services.greetd = {
+    enable = true;
+    restart = true;
+    settings = {
+      default_session = {
+        command = "Hyprland";
+        user = "aegiscarr";
+      };
+    };
+  };
+
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal";
+    TTYReset = "true";
+    TTYHangup = "true";
+    TTYVTDisallocate = true;
   };
 
   services.printing.drivers = [ pkgs.gutenprint ];
