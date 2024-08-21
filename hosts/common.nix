@@ -1,5 +1,10 @@
 # this file allows for easy host addition as it adds the most basic common
 # features of your nixos configuration
+
+### THINGS WRONG
+# no wayland.. somehow despite having a working hyprland config before
+# theming is f*cked
+
 {
   inputs,
   config,
@@ -8,37 +13,40 @@
   ...
 }: {
   services.xserver = {
-    enable = false;
+    enable = true;
   };
 
-  services.displayManager.sddm.enable = false;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.defaultSession = "plasma";
   services.udisks2.enable = true;
+  services.desktopManager.plasma6.enable = true;
   
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+#  programs.hyprland = {
+#    enable = true;
+#    xwayland.enable = true;
+#  };
 
-  programs.hyprlock = {
-    enable = true;
-    package = pkgs.hyprlock.overrideAttrs (old: {
-      version = "git";
-      src = pkgs.fetchFromGitHub {
-        owner = "hyprwm";
-        repo = "hyprlock";
-        rev = "2bce52f";
-        sha256 = "36qa6MOhCBd39YPC0FgapwGRHZXjstw8BQuKdFzwQ4k=";
-      };
-      patchPhase = ''
-        substituteInPlace src/core/hyprlock.cpp \
-        --replace "5000" "16"
-      '';
-      });
-  };
+#  programs.hyprlock = {
+#    enable = true;
+#    package = pkgs.hyprlock.overrideAttrs (old: {
+#      version = "git";
+#      src = pkgs.fetchFromGitHub {
+#        owner = "hyprwm";
+#        repo = "hyprlock";
+#        rev = "2bce52f";
+#        sha256 = "36qa6MOhCBd39YPC0FgapwGRHZXjstw8BQuKdFzwQ4k=";
+#      };
+#      patchPhase = ''
+#        substituteInPlace src/core/hyprlock.cpp \
+#        --replace "5000" "16"
+#      '';
+#      });
+#  };
   
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
   programs.dconf.enable = true;
@@ -63,6 +71,8 @@
     playerctl
     cudaPackages.cudatoolkit
     swayidle
+    lolcat
+    outils
   ];
 
   fonts.packages = with pkgs; [
@@ -117,16 +127,15 @@
     openFirewall = true;
   };
 
-  services.greetd = {
-    enable = true;
-    restart = true;
-    settings = {
-      default_session = {
-        command = "Hyprland";
-        user = "aegiscarr";
-      };
-    };
-  };
+#services.greetd = {
+#    enable = true;
+#    restart = true;
+#    settings = {
+#      default_session = {
+#        user = "aegiscarr";
+#      };
+#    };
+#  };
 
   systemd.services.greetd.serviceConfig = {
     Type = "idle";

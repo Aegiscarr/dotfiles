@@ -8,7 +8,7 @@
     ./packages.nix # home.packages and similar stuff
     ./programs.nix # programs.<programName>.enable
     ./git.nix
-    inputs.hyprland.homeManagerModules.default
+    #inputs.hyprland.homeManagerModules.default
     ./ags
   ];
 
@@ -65,10 +65,10 @@
   home.stateVersion = "24.05";
 
   # hyprland config
-  wayland.windowManager.hyprland.settings = import ./hyprland.nix;
-  wayland.windowManager.hyprland.enable = true;
-  wayland.windowManager.hyprland.systemd.enable = true;
-  wayland.windowManager.hyprland.xwayland.enable = true;
+#  wayland.windowManager.hyprland.settings = import ./hyprland.nix;
+#  wayland.windowManager.hyprland.enable = true;
+#  wayland.windowManager.hyprland.systemd.enable = true;
+#  wayland.windowManager.hyprland.xwayland.enable = true;
 
   services.arrpc.enable = true;
   services.udiskie.enable = true;

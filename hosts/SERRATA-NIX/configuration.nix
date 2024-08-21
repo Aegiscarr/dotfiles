@@ -47,7 +47,7 @@
   # audio maybe
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   # cuda support
-  boot.kernelModules = [ "nvidia-uvm" ];
+  boot.kernelModules = [ "nvidia-egl nvidia-uvm" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.xone.enable = true;
 
