@@ -3,7 +3,6 @@
 
 ### THINGS WRONG
 # no wayland.. somehow despite having a working hyprland config before
-# theming is f*cked
 
 {
   inputs,
@@ -20,29 +19,9 @@
   services.displayManager.defaultSession = "plasma";
   services.udisks2.enable = true;
   services.desktopManager.plasma6.enable = true;
-  
-#  programs.hyprland = {
-#    enable = true;
-#    xwayland.enable = true;
-#  };
 
-#  programs.hyprlock = {
-#    enable = true;
-#    package = pkgs.hyprlock.overrideAttrs (old: {
-#      version = "git";
-#      src = pkgs.fetchFromGitHub {
-#        owner = "hyprwm";
-#        repo = "hyprlock";
-#        rev = "2bce52f";
-#        sha256 = "36qa6MOhCBd39YPC0FgapwGRHZXjstw8BQuKdFzwQ4k=";
-#      };
-#      patchPhase = ''
-#        substituteInPlace src/core/hyprlock.cpp \
-#        --replace "5000" "16"
-#      '';
-#      });
-#  };
-  
+  qt.style = "breeze";
+  qt.platformTheme = "kde"; 
 
   hardware.graphics = {
     enable = true;
@@ -126,17 +105,7 @@
     nssmdns4 = true;
     openFirewall = true;
   };
-
-#services.greetd = {
-#    enable = true;
-#    restart = true;
-#    settings = {
-#      default_session = {
-#        user = "aegiscarr";
-#      };
-#    };
-#  };
-
+  
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
     StandardInput = "tty";

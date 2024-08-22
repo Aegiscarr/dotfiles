@@ -31,8 +31,11 @@
   };
 
   programs = {
-    # systemwide programs can be added here
+    adb.enable = true;
   };
+
+  
+
 
   environment.systemPackages = with pkgs; [
     # systemwide packages can be added here
@@ -56,9 +59,6 @@
 
   # nvidia drivers
   services.xserver.videoDrivers=["nvidia"];
-
-  # autologin
-  #services.getty.autologinUser = "aegiscarr";
 
   hardware.nvidia = {
     modesetting.enable=true;
