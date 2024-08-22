@@ -14,8 +14,8 @@
     # TODO - change username
     username = "aegiscarr";
     homeDirectory = "/home/aegiscarr";
-    file.".config/foot/foot.ini".source = ./configs/foot.ini;
-    file.".config/hypr/hyprlock.conf".source = ./configs/hyprlock.conf;
+    #file.".config/foot/foot.ini".source = ./configs/foot.ini;
+    #file.".config/hypr/hyprlock.conf".source = ./configs/hyprlock.conf;
     pointerCursor = {
       gtk.enable=true;
       name = "Posy's Cursor";
