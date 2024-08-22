@@ -8,7 +8,6 @@
     ./packages.nix # home.packages and similar stuff
     ./programs.nix # programs.<programName>.enable
     ./git.nix
-    ./ags
   ];
 
   home = {

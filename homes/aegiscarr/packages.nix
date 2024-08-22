@@ -13,5 +13,8 @@
     gimp
     inkscape
     hyprpicker
+#    obsidian
+#    unityhub
+#    audacity
   ];
 }

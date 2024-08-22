@@ -56,14 +56,6 @@
     # nixos-hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # hyprland
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprlock.url = "github:hyprwm/hyprlock";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
-
-    # ags
-    ags.url = "github:Aylur/ags";
-
     # NUR
     nur.url = "github:nix-community/NUR";
   };
